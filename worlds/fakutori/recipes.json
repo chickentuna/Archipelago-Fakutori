@@ -1,0 +1,1205 @@
+{
+  "recipes": [
+    {
+      "type": "Combine",
+      "product": "Acid",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Fizzy water",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Smoke",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Generator",
+      "product": "Air",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Air generator",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Antimatter",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 200,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Light",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Darkness",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Entropy",
+          "quantity": 2,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "BlackHole",
+      "product": "Black hole",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Antimatter",
+          "quantity": 9,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combust",
+      "product": "Coal",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Wood",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Copper",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Meteorite",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Fire",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Coal",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Darkness",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 100,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 2,
+          "ingredientType": "Color",
+          "color": "Black"
+        },
+        {
+          "blockName": "Magic",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Dust",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Earth",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Air",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Generator",
+      "product": "Earth",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Earth generator",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "DissolveMetals",
+      "product": "Electricity",
+      "byproduct": null,
+      "displayOnly": true,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 2,
+          "ingredientType": "Property"
+        },
+        {
+          "blockName": "Acid",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Entropy",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 2,
+          "ingredientType": "Property"
+        }
+      ]
+    },
+    {
+      "type": "Fall",
+      "product": "Ether",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "ingredientType": "Property"
+        }
+      ]
+    },
+    {
+      "type": "EvolvingFire",
+      "product": "Fire 2",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Fire",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "EvolvingFire",
+      "product": "Fire 3",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Yellow fire",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Generator",
+      "product": "Fire 1",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Fire generator",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Fizzy water",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Water",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Air",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Gold",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Silver",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Blue fire",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Coal",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Iron",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Copper",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Fire",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Coal",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Lava",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Fire",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Earth",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Light",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 100,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 2,
+          "color": "White",
+          "ingredientType": "Color"
+        },
+        {
+          "blockName": "Magic",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Starstruck",
+      "product": "Luck",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Air",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Magic",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 2,
+          "ingredientType": "Property"
+        },
+        {
+          "blockName": "Ether",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Quickening",
+      "product": "Mercury",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Silver",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Starstruck",
+      "product": "Meteorite",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Earth",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Oil",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 2.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Wood",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Earth",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 2,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Plasma",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Blue fire",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Electricity",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz black",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "Black",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz blue",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "Blue",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz brown",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "Brown",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz green",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "Green",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz grey",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "Grey",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz orange",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "Orange",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz pink",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "Pink",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz purple",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "Purple",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz red",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "Red",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz white",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "White",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz yellow",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "color": "Yellow",
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Quartz",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 1.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "?",
+      "product": "Quartz",
+      "byproduct": null,
+      "displayOnly": true,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Sand",
+          "quantity": 0,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Time",
+          "quantity": 0,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 0,
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Rainbow",
+      "product": "Rainbow",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 7,
+          "ingredientType": "Color"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Ruby",
+      "byproduct": "Dust",
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 0.25,
+      "ingredients": [
+        {
+          "blockName": "Stone",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Luck",
+          "quantity": 2,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Sand",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Stone",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Air",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Sand",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Stone",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Water",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Fall",
+      "product": "Shooting star",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "ingredientType": "Property"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Silver",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Iron",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Yellow fire",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Coal",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Smoke",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Fire",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Air",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combust",
+      "product": "Smoke",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Oil",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Steam",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Water",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Fire",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Stone",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Lava",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Air",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Time",
+      "product": "Time",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Ether",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Void",
+      "product": "Void",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "NO_BLOCK",
+          "quantity": 1,
+          "ingredientType": "Any"
+        }
+      ]
+    },
+    {
+      "type": "Generator",
+      "product": "Water",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Water generator",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Combine",
+      "product": "Wood",
+      "byproduct": null,
+      "displayOnly": false,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Water",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Earth",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    },
+    {
+      "type": "Quasar",
+      "product": "Quasar",
+      "byproduct": null,
+      "displayOnly": true,
+      "moneyCost": 0,
+      "manaCost": 0,
+      "timeCost": 0.0,
+      "probability": 1.0,
+      "ingredients": [
+        {
+          "blockName": "Black hole",
+          "quantity": 1,
+          "ingredientType": "Block"
+        },
+        {
+          "blockName": "Anything",
+          "quantity": 1,
+          "ingredientType": "Block"
+        }
+      ]
+    }
+  ]
+}
