@@ -157,21 +157,38 @@ class Fakutori(World):
         return n >= 7
 
     def set_rules(self) -> None:
+        for item in self.unlockables:
+            if item['category'] != 'Machine':
+                # set_rule(
+                #     self.multiworld.get_location(item['name'], self.player),
+                #     lambda state: False
+                # )
+                pass
+        
         recipes_json = []
         with open(data_path('recipes.json'), 'r') as stream:
             recipes_json = json.load(stream)
         recipes = recipes_json['recipes']
         for recipe in recipes:
-            if recipe['product'] == 'Rainbow':
-                add_rule(
+            if recipe['type'] == 'EvolvingFire':
+                product = 'Yellow fire' if recipe['product'] == 'Fire 2' else 'Blue fire'
+                set_rule(
+                    self.multiworld.get_location(product, self.player),
+                    lambda state: state.has_any(["Wood", "Oil"], self.player),
+                    # "or"
+                )
+                print(f"Added rule for {product} requiring Wood or Oil")
+            elif recipe['product'] == 'Rainbow':
+                set_rule(
                     self.multiworld.get_location('Rainbow', self.player),
-                    lambda state: self.can_rainbow(state)
+                    lambda state: self.can_rainbow(state),
+                    # "or"
                 )
             elif recipe['type'] == 'Combine':
-                add_rule(
+                set_rule(
                     self.multiworld.get_location(recipe['product'], self.player),
                     lambda state: all(self.has_ingredient(state, ingredient) for ingredient in recipe['ingredients']),
-                    combine="or"
+                    # "or"
                 )
 
         self.multiworld.get_location("Quasar", self.player).place_locked_item(self.create_item("Quasar"))
