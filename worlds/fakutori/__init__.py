@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 import collections
+import inspect
 import json
 import logging
 import typing
@@ -157,41 +158,55 @@ class Fakutori(World):
         return n >= 7
 
     def set_rules(self) -> None:
+        items_with_no_rule = set()
+
         for item in self.unlockables:
             if item['category'] != 'Machine':
-                # set_rule(
-                #     self.multiworld.get_location(item['name'], self.player),
-                #     lambda state: False
-                # )
-                pass
+                set_rule(
+                    self.multiworld.get_location(item['name'], self.player),
+                    lambda state: False
+                )
+                items_with_no_rule.add(item['name'])
         
         recipes_json = []
         with open(data_path('recipes.json'), 'r') as stream:
             recipes_json = json.load(stream)
         recipes = recipes_json['recipes']
         for recipe in recipes:
+            
             if recipe['type'] == 'EvolvingFire':
                 product = 'Yellow fire' if recipe['product'] == 'Fire 2' else 'Blue fire'
-                set_rule(
+                add_rule(
                     self.multiworld.get_location(product, self.player),
                     lambda state: state.has_any(["Wood", "Oil"], self.player),
-                    # "or"
+                    "or"
                 )
+                items_with_no_rule.discard(product)
                 print(f"Added rule for {product} requiring Wood or Oil")
             elif recipe['product'] == 'Rainbow':
-                set_rule(
+                add_rule(
                     self.multiworld.get_location('Rainbow', self.player),
                     lambda state: self.can_rainbow(state),
-                    # "or"
+                    "or"
                 )
+                items_with_no_rule.discard('Rainbow')
             elif recipe['type'] == 'Combine':
-                set_rule(
+                print(f"Adding rule for {recipe['product']} requiring {[i['blockName'] for i in recipe['ingredients']]}")
+                add_rule(
                     self.multiworld.get_location(recipe['product'], self.player),
-                    lambda state: all(self.has_ingredient(state, ingredient) for ingredient in recipe['ingredients']),
-                    # "or"
+                    lambda state, r=recipe: all(self.has_ingredient(state, ingredient) for ingredient in r['ingredients']),
+                    "or"
                 )
-
+                items_with_no_rule.discard(recipe['product'])
+        for item in items_with_no_rule:
+            print(item, 'is accessible')
+            set_rule(
+                self.multiworld.get_location(item, self.player),
+                lambda state: True
+            )
         self.multiworld.get_location("Quasar", self.player).place_locked_item(self.create_item("Quasar"))
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Quasar", self.player)
        
         visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
+        # for i in self.multiworld.get_region("Factory", self.player).locations:
+        #     print(f"{i.name} has rule {inspect.getsource(i.access_rule)}")
