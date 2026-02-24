@@ -82,6 +82,14 @@ colors = [
     'Purple',
 ]
 
+metals = [
+    'Copper',
+    'Iron',
+    'Silver',
+    'Gold',
+    'Quicksilver'
+]
+
 name_to_color: Dict[str, str] = {
     'Fire': 'Orange',
     'Water': 'Blue',

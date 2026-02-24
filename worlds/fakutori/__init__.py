@@ -8,6 +8,9 @@ import logging
 import typing
 from typing import Any, Dict, List, Optional, Tuple
 
+# todo use AbstractSingleton<Notifications>.Instance.QueueNotification(NotificationType.NewBlock, blockData, onCell);
+# see notification class for more details on how to customize notifs
+
 import Utils
 from Utils import visualize_regions
 from BaseClasses import CollectionState, Region, Location, Item, Tutorial, ItemClassification
@@ -18,7 +21,7 @@ from .items import FakutoriItem
 from .locations import FakutoriLocation
 from .options import FakutoriOptions
 from settings import Group
-from .data import blocks, name_to_color, colors
+from .data import blocks, name_to_color, colors, metals
 from worlds.generic.Rules import add_rule, set_rule, forbid_item, add_item_rule
 
 def data_path(*args):
@@ -72,6 +75,7 @@ class Fakutori(World):
             if not color in item_name_groups:
                 item_name_groups[color] = []
             item_name_groups[color].append(item['name'])
+    item_name_groups['Metals'] = metals
 
 
     def classify_item(self, item: str) -> ItemClassification:
@@ -153,7 +157,7 @@ class Fakutori(World):
         n = 0
         default_colors = ['Blue', 'Red', 'Brown', 'White']
         for color in colors:
-            if color in default_colors or state.has_group_unique(color, self.player) > 0:
+            if color in default_colors or state.count_group_unique(color, self.player) > 0:
                 n += 1
         return n >= 7
 
@@ -173,8 +177,29 @@ class Fakutori(World):
             recipes_json = json.load(stream)
         recipes = recipes_json['recipes']
         for recipe in recipes:
-            
-            if recipe['type'] == 'EvolvingFire':
+            if recipe['product'] == 'Electricity':
+                add_rule(
+                    self.multiworld.get_location('Electricity', self.player),
+                    lambda state: state.has_any(["Acid"], self.player) and state.has_group("Metals", self.player),
+                    "or"
+                )
+                items_with_no_rule.discard('Electricity')
+
+            elif recipe['type'] == 'Quasar':
+                add_rule(
+                    self.multiworld.get_location('Quasar', self.player),
+                    lambda state: state.has_any(["Black hole"], self.player),
+                    "or"
+                )
+                items_with_no_rule.discard('Quasar')
+            elif recipe['type'] == 'Void':
+                add_rule(
+                    self.multiworld.get_location('Void', self.player),
+                    lambda state: state.has_any(["Antimatter"], self.player),
+                    "or"
+                )
+                items_with_no_rule.discard('Void')
+            elif recipe['type'] == 'EvolvingFire':
                 product = 'Yellow fire' if recipe['product'] == 'Fire 2' else 'Blue fire'
                 add_rule(
                     self.multiworld.get_location(product, self.player),
@@ -190,13 +215,14 @@ class Fakutori(World):
                     "or"
                 )
                 items_with_no_rule.discard('Rainbow')
-            elif recipe['type'] == 'Combine':
+            elif recipe['type'] in ('Combine', 'Combust', 'Quickening', 'Black hole'):
                 print(f"Adding rule for {recipe['product']} requiring {[i['blockName'] for i in recipe['ingredients']]}")
                 add_rule(
                     self.multiworld.get_location(recipe['product'], self.player),
                     lambda state, r=recipe: all(self.has_ingredient(state, ingredient) for ingredient in r['ingredients']),
                     "or"
                 )
+
                 items_with_no_rule.discard(recipe['product'])
         for item in items_with_no_rule:
             print(item, 'is accessible')
@@ -206,7 +232,3 @@ class Fakutori(World):
             )
         self.multiworld.get_location("Quasar", self.player).place_locked_item(self.create_item("Quasar"))
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Quasar", self.player)
-       
-        visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml")
-        # for i in self.multiworld.get_region("Factory", self.player).locations:
-        #     print(f"{i.name} has rule {inspect.getsource(i.access_rule)}")
