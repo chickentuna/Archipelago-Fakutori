@@ -161,6 +161,7 @@ class Fakutori(World):
                 n += 1
         return n >= 7
 
+    # TODO: check entire recipe tree, also remove machiens from the pool for now!
     def set_rules(self) -> None:
         items_with_no_rule = set()
 
