@@ -202,7 +202,8 @@
         {
           "blockName": "NO_BLOCK",
           "quantity": 2,
-          "ingredientType": "Property"
+          "ingredientType": "Property",
+          "property": "Metal"
         },
         {
           "blockName": "Acid",
@@ -224,7 +225,8 @@
         {
           "blockName": "NO_BLOCK",
           "quantity": 2,
-          "ingredientType": "Property"
+          "ingredientType": "Property",
+          "property": "Energy"
         }
       ]
     },
@@ -241,13 +243,14 @@
         {
           "blockName": "NO_BLOCK",
           "quantity": 1,
-          "ingredientType": "Property"
+          "ingredientType": "Property",
+          "property": "Aerial"
         }
       ]
     },
     {
       "type": "EvolvingFire",
-      "product": "Fire 2",
+      "product": "Yellow fire",
       "byproduct": null,
       "displayOnly": false,
       "moneyCost": 0,
@@ -264,7 +267,7 @@
     },
     {
       "type": "EvolvingFire",
-      "product": "Fire 3",
+      "product": "Blue fire",
       "byproduct": null,
       "displayOnly": false,
       "moneyCost": 0,
@@ -447,7 +450,8 @@
         {
           "blockName": "NO_BLOCK",
           "quantity": 2,
-          "ingredientType": "Property"
+          "ingredientType": "Property",
+          "property": "RawElement"
         },
         {
           "blockName": "Ether",
@@ -992,7 +996,8 @@
         {
           "blockName": "NO_BLOCK",
           "quantity": 1,
-          "ingredientType": "Property"
+          "ingredientType": "Property",
+          "property": "Weighty"
         }
       ]
     },

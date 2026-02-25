@@ -1,0 +1,742 @@
+{
+  "blocks": [
+    {
+      "name": "Fire",
+      "blockName": "Fire",
+      "id": 11,
+      "category": "Raw element",
+      "color": "Orange",
+      "unlockedByDefault": true,
+      "properties": [
+        "Weightless",
+        "Burning",
+        "EvolvingFire",
+        "RawElement"
+      ]
+    },
+    {
+      "name": "Water",
+      "blockName": "Water",
+      "id": 14,
+      "category": "Raw element",
+      "color": "Blue",
+      "unlockedByDefault": true,
+      "properties": [
+        "Weighty",
+        "RawElement",
+        "Conductive"
+      ]
+    },
+    {
+      "name": "Earth",
+      "blockName": "Earth",
+      "id": 15,
+      "category": "Raw element",
+      "color": "Brown",
+      "unlockedByDefault": true,
+      "properties": [
+        "Weighty",
+        "RawElement"
+      ]
+    },
+    {
+      "name": "Air",
+      "blockName": "Air",
+      "id": 16,
+      "category": "Raw element",
+      "color": "White",
+      "unlockedByDefault": true,
+      "properties": [
+        "Weightless",
+        "RawElement"
+      ]
+    },
+    {
+      "name": "Wood",
+      "blockName": "Wood",
+      "id": 17,
+      "category": "Organic",
+      "color": "Brown",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Flammable"
+      ]
+    },
+    {
+      "name": "Coal",
+      "blockName": "Coal",
+      "id": 18,
+      "category": "Organic",
+      "color": "Black",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty"
+      ]
+    },
+    {
+      "name": "Smoke",
+      "blockName": "Smoke",
+      "id": 20,
+      "category": "Misc elements",
+      "color": "Brown",
+      "unlockedByDefault": false,
+      "properties": [
+        "Aerial"
+      ]
+    },
+    {
+      "name": "Lava",
+      "blockName": "Lava",
+      "id": 21,
+      "category": "Mineral",
+      "color": "Orange",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Burning"
+      ]
+    },
+    {
+      "name": "Dust",
+      "blockName": "Dust",
+      "id": 22,
+      "category": "Mineral",
+      "color": "Brown",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty"
+      ]
+    },
+    {
+      "name": "Steam",
+      "blockName": "Steam",
+      "id": 28,
+      "category": "Energy",
+      "color": "White",
+      "unlockedByDefault": false,
+      "properties": [
+        "Aerial",
+        "Energy"
+      ]
+    },
+    {
+      "name": "Fizzy water",
+      "blockName": "Fizzy water",
+      "id": 39,
+      "category": "Misc elements",
+      "color": "Blue",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Conductive"
+      ]
+    },
+    {
+      "name": "Shooting star",
+      "blockName": "Shooting star",
+      "id": 27,
+      "category": "Misc elements",
+      "color": "Yellow",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Volatile",
+        "ShootingStar"
+      ]
+    },
+    {
+      "name": "Ether",
+      "blockName": "Ether",
+      "id": 26,
+      "category": "Misc elements",
+      "color": "Pink",
+      "unlockedByDefault": false,
+      "properties": [
+        "Aerial",
+        "Volatile"
+      ]
+    },
+    {
+      "name": "Stone",
+      "blockName": "Stone",
+      "id": 23,
+      "category": "Mineral",
+      "color": "Grey",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty"
+      ]
+    },
+    {
+      "name": "Sand",
+      "blockName": "Sand",
+      "id": 24,
+      "category": "Mineral",
+      "color": "Pink",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty"
+      ]
+    },
+    {
+      "name": "Acid",
+      "blockName": "Acid",
+      "id": 40,
+      "category": "Misc elements",
+      "color": "Green",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Solvent"
+      ]
+    },
+    {
+      "name": "Meteorite",
+      "blockName": "Meteorite",
+      "id": 25,
+      "category": "Mineral",
+      "color": "Brown",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty"
+      ]
+    },
+    {
+      "name": "Rainbow",
+      "blockName": "Rainbow",
+      "id": 48,
+      "category": "Magical",
+      "color": "Multicolor",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Multicolored"
+      ]
+    },
+    {
+      "name": "Luck",
+      "blockName": "Luck",
+      "id": 34,
+      "category": "Concept",
+      "color": "Green",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Luck",
+        "Concept"
+      ]
+    },
+    {
+      "name": "Magic",
+      "blockName": "Magic",
+      "id": 35,
+      "category": "Concept",
+      "color": "Red",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Magic",
+        "Concept"
+      ]
+    },
+    {
+      "name": "Time",
+      "blockName": "Time",
+      "id": 36,
+      "category": "Concept",
+      "color": "Purple",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Time",
+        "Concept"
+      ]
+    },
+    {
+      "name": "Entropy",
+      "blockName": "Entropy",
+      "id": 37,
+      "category": "Concept",
+      "color": "Blue",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Entropy",
+        "Concept"
+      ]
+    },
+    {
+      "name": "Void",
+      "blockName": "Void",
+      "id": 38,
+      "category": "Concept",
+      "color": "Black",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Void",
+        "Concept"
+      ]
+    },
+    {
+      "name": "Oil",
+      "blockName": "Oil",
+      "id": 19,
+      "category": "Organic",
+      "color": "Black",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Flammable",
+        "Accelerant"
+      ]
+    },
+    {
+      "name": "Yellow fire",
+      "blockName": "Yellow fire",
+      "id": 12,
+      "category": "Energy",
+      "color": "Yellow",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Burning",
+        "EvolvingFire",
+        "Energy"
+      ]
+    },
+    {
+      "name": "Blue fire",
+      "blockName": "Blue fire",
+      "id": 13,
+      "category": "Energy",
+      "color": "Blue",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Burning",
+        "Energy"
+      ]
+    },
+    {
+      "name": "Copper",
+      "blockName": "Copper",
+      "id": 29,
+      "category": "Metal",
+      "color": "Orange",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Metal",
+        "Conductive"
+      ]
+    },
+    {
+      "name": "Iron",
+      "blockName": "Iron",
+      "id": 30,
+      "category": "Metal",
+      "color": "Grey",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Metal",
+        "Conductive"
+      ]
+    },
+    {
+      "name": "Silver",
+      "blockName": "Silver",
+      "id": 31,
+      "category": "Metal",
+      "color": "Blue",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quickening",
+        "Metal",
+        "Conductive"
+      ]
+    },
+    {
+      "name": "Gold",
+      "blockName": "Gold",
+      "id": 32,
+      "category": "Metal",
+      "color": "Yellow",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Metal",
+        "Conductive"
+      ]
+    },
+    {
+      "name": "Quicksilver",
+      "blockName": "Quicksilver",
+      "id": 43,
+      "category": "Metal",
+      "color": "Grey",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Metal",
+        "Conductive"
+      ]
+    },
+    {
+      "name": "Electricity",
+      "blockName": "Electricity",
+      "id": 42,
+      "category": "Energy",
+      "color": "Yellow",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Electrifying",
+        "Energy"
+      ]
+    },
+    {
+      "name": "Plasma",
+      "blockName": "Plasma",
+      "id": 41,
+      "category": "Energy",
+      "color": "Purple",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Energy",
+        "Conductive"
+      ]
+    },
+    {
+      "name": "Quartz",
+      "blockName": "Quartz",
+      "id": 47,
+      "category": "Mineral",
+      "color": "Colorless",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz black",
+      "blockName": "Quartz",
+      "id": 51,
+      "category": "Mineral",
+      "color": "Black",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz blue",
+      "blockName": "Quartz",
+      "id": 52,
+      "category": "Mineral",
+      "color": "Blue",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz brown",
+      "blockName": "Quartz",
+      "id": 53,
+      "category": "Mineral",
+      "color": "Brown",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz green",
+      "blockName": "Quartz",
+      "id": 54,
+      "category": "Mineral",
+      "color": "Green",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz grey",
+      "blockName": "Quartz",
+      "id": 55,
+      "category": "Mineral",
+      "color": "Grey",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz orange",
+      "blockName": "Quartz",
+      "id": 56,
+      "category": "Mineral",
+      "color": "Orange",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz pink",
+      "blockName": "Quartz",
+      "id": 57,
+      "category": "Mineral",
+      "color": "Pink",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz purple",
+      "blockName": "Quartz",
+      "id": 58,
+      "category": "Mineral",
+      "color": "Purple",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz red",
+      "blockName": "Quartz",
+      "id": 59,
+      "category": "Mineral",
+      "color": "Red",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz white",
+      "blockName": "Quartz",
+      "id": 60,
+      "category": "Mineral",
+      "color": "White",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Quartz yellow",
+      "blockName": "Quartz",
+      "id": 61,
+      "category": "Mineral",
+      "color": "Yellow",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Quartz"
+      ]
+    },
+    {
+      "name": "Ruby",
+      "blockName": "Ruby",
+      "id": 33,
+      "category": "Mineral",
+      "color": "Red",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weighty",
+        "Gem"
+      ]
+    },
+    {
+      "name": "Light",
+      "blockName": "Light",
+      "id": 44,
+      "category": "Magical",
+      "color": "Yellow",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless"
+      ]
+    },
+    {
+      "name": "Darkness",
+      "blockName": "Darkness",
+      "id": 45,
+      "category": "Magical",
+      "color": "Black",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless"
+      ]
+    },
+    {
+      "name": "Antimatter",
+      "blockName": "Antimatter",
+      "id": 46,
+      "category": "Energy",
+      "color": "White",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Antimatter",
+        "Energy"
+      ]
+    },
+    {
+      "name": "Black hole",
+      "blockName": "Black hole",
+      "id": 49,
+      "category": "Unique",
+      "color": "Black",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Immovable",
+        "Unique",
+        "BlackHole"
+      ]
+    },
+    {
+      "name": "Quasar",
+      "blockName": "Quasar",
+      "id": 50,
+      "category": "Legendary",
+      "color": "Multicolor",
+      "unlockedByDefault": false,
+      "properties": [
+        "Weightless",
+        "Immovable",
+        "Legendary",
+        "Entangled"
+      ]
+    },
+    {
+      "name": "Generator fire",
+      "blockName": "Fire generator",
+      "id": 62,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": true,
+      "properties": []
+    },
+    {
+      "name": "Generator water",
+      "blockName": "Water generator",
+      "id": 1,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": true,
+      "properties": []
+    },
+    {
+      "name": "Generator earth",
+      "blockName": "Earth generator",
+      "id": 2,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": true,
+      "properties": []
+    },
+    {
+      "name": "Generator air",
+      "blockName": "Air generator",
+      "id": 3,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": true,
+      "properties": []
+    },
+    {
+      "name": "Wall",
+      "blockName": "Wall",
+      "id": 6,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": true,
+      "properties": []
+    },
+    {
+      "name": "Conveyor",
+      "blockName": "Conveyor",
+      "id": 7,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": true,
+      "properties": []
+    },
+    {
+      "name": "Combiner",
+      "blockName": "Combiner",
+      "id": 4,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": true,
+      "properties": []
+    },
+    {
+      "name": "Disassembler",
+      "blockName": "Disassembler",
+      "id": 5,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": false,
+      "properties": []
+    },
+    {
+      "name": "Pusher",
+      "blockName": "Pusher",
+      "id": 10,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": false,
+      "properties": []
+    },
+    {
+      "name": "Puller",
+      "blockName": "Puller",
+      "id": 63,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": false,
+      "properties": []
+    },
+    {
+      "name": "Conveyor alternate",
+      "blockName": "Toggle conveyor",
+      "id": 8,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": false,
+      "properties": []
+    },
+    {
+      "name": "Cross conveyor",
+      "blockName": "Cross conveyor",
+      "id": 9,
+      "category": "Machine",
+      "color": "Machine",
+      "unlockedByDefault": false,
+      "properties": []
+    }
+  ]
+}
