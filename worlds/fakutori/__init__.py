@@ -28,11 +28,20 @@ def data_path(*args):
 class FakutoriSettings(Group):
     pass
 
+def print_return(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        print(result)
+        return result
+    return wrapper
+
+
 class Fakutori(World):
     """Fakutori is a laid-back and colorful automation game;
     place machines, discover new elements, and try to craft the elusive Legendary Blocks!
     No limits, no pressure, just blocks!"""
 
+    game = "Fakutori"  # name of the game/world
     
     required_client_version = (0, 6, 0)
     if Utils.version_tuple < required_client_version:
@@ -41,7 +50,6 @@ class Fakutori(World):
     def __init__(self, world, player: int):
         super(Fakutori, self).__init__(world, player)
 
-    game = "Fakutori"  # name of the game/world
     options_dataclass = FakutoriOptions  # options the player can set
     options: FakutoriOptions  # typing hints for option results
     settings: typing.ClassVar[FakutoriSettings]  # will be automatically assigned from type hint
@@ -56,8 +64,6 @@ class Fakutori(World):
     with open(data_path('recipes.json'), 'r') as stream:
         recipes_json = json.load(stream)
     recipes = [r for r in recipes_json['recipes'] if r['type'] != 'Generator']
-
-
 
     item_name_to_id = {}
     location_name_to_id = {}
@@ -206,21 +212,22 @@ class Fakutori(World):
         return len(color_counter) >= 7
 
     def can_do_recipe(self, state: CollectionState, recipe) -> bool:
+        # print(f"checking if can do recipe {recipe['product']} with state {state.prog_items[self.player]}")
+
         if recipe['type'] == 'Starstruck':
             return self.can_make_block(state, "Shooting star") and all(self.has_ingredient(state, ingredient) for ingredient in recipe['ingredients'])
         elif recipe['type'] == 'Quasar':
-            return self.can_make_block(state, "Black hole"),
+            return self.can_make_block(state, "Black hole")
         elif recipe['type'] == 'Void':
-            return self.can_make_block(state, "Antimatter"),
+            return self.can_make_block(state, "Antimatter")
         elif recipe['type'] == 'EvolvingFire':
             return self.can_make_block(state, "Wood") or self.can_make_block(state, "Oil") and self.can_make_block(state, "Fire")
         elif recipe['product'] == 'Rainbow':
-            return self.can_rainbow(state),
+            return self.can_rainbow(state)
         elif recipe['type'] in ('Combine', 'Combust', 'Quickening', 'BlackHole', 'Time', 'DissolveMetals', 'Fall'):
-            return all(self.has_ingredient(state, ingredient) for ingredient in recipe['ingredients']),
+            return all(self.has_ingredient(state, ingredient) for ingredient in recipe['ingredients'])
         return True
 
-    # TODO: check entire recipe tree
     def set_rules(self) -> None:
         items_with_no_rule = set()
 
@@ -241,12 +248,11 @@ class Fakutori(World):
             items_with_no_rule.discard(recipe['product'])
 
         for item in items_with_no_rule:
-            print(f'no rule for {item}')
             set_rule(
                 self.multiworld.get_location(item, self.player),
                 lambda state: True
             )
         
-        quasar_recipe = next(r for r in self.recipes if r['type'] == 'Quasar')
-        print(quasar_recipe)
-        self.multiworld.completion_condition[self.player] = lambda state: self.can_do_recipe(state, quasar_recipe)
+        progression_items = [item['blockName'] for item in self.blocks if self.classify_item(item['category']) == ItemClassification.progression]
+        self.multiworld.completion_condition[self.player] = lambda state: state.has_all(progression_items, self.player)
+        
