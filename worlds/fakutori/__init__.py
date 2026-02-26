@@ -15,6 +15,7 @@ from BaseClasses import CollectionState, Region, Location, Item, Tutorial, ItemC
 from worlds.AutoWorld import World, WebWorld
 from worlds.LauncherComponents import Component, components, Type, launch as launch_component
 from worlds.generic import Rules
+from worlds.stardew_valley.stardew_rule import state
 from .items import FakutoriItem
 from .locations import FakutoriLocation
 from .options import FakutoriOptions
@@ -154,103 +155,85 @@ class Fakutori(World):
 
         menu_region.connect(main_region) 
 
-    def can_make_block(self, state: CollectionState, blockName) -> bool:
-        if not state.has(blockName, self.player):
-            return False
-        can_cook = []
-        for recipe in self.recipes:
-            if recipe['product'] == blockName:
-                can_craft_ingredient = self.can_do_recipe(state, recipe)
-                can_cook.append(can_craft_ingredient)
-        if (len(can_cook) > 0) and (not any(can_cook)):
-            return False
-        return True
+    def can_craft_block(self, state: CollectionState, blockName: str) -> bool:
+        every_craftable_block = self.get_every_craftable_block(state)
+        return blockName in every_craftable_block
 
-    def has_ingredient(self, state: CollectionState, ingredient) -> bool:
+
+    def get_every_craftable_block(self, state: CollectionState) -> List[str]:
+        unlocked_recipes = []
+        for name in state.prog_items[self.player]:
+            unlocked_recipes += [r for r in self.recipes if r['product'] == name]
+        virtual_collection = ['Fire', 'Water', 'Earth', 'Air']
+        to_add = []
+        new_crafted = True
+        while new_crafted:
+            new_crafted = False
+            for recipe in unlocked_recipes:
+                if recipe["product"] not in virtual_collection and self.can_do_recipe(virtual_collection, recipe):
+                    to_add.append(recipe['product'])
+                    new_crafted = True
+                    break
+            virtual_collection += to_add
+        return virtual_collection
+
+    def has_ingredient(self, collection: List[str], ingredient) -> bool:
         blockName = ingredient['blockName']
         quantity = ingredient['quantity']
         ingredientType = ingredient['ingredientType']
 
-        if ingredientType == 'Property':
-            prop_counter = self.count_properties(state)
-            return prop_counter[ingredient['property']] >= quantity
-        elif ingredientType == 'Block':
-            return self.can_make_block(state, blockName)
+        if ingredientType == 'Block':
+            return blockName in collection
+        elif ingredientType == 'Property':
+            prop_counter = self.count_properties(collection)
+            return prop_counter[ingredient['property']] >= quantity            
         elif ingredientType == 'Color':
-            color_counter = self.count_colors(state)
+            color_counter = self.count_colors(collection)
             return color_counter[ingredient['color']] >= quantity
         return True
 
-    def count_properties(self, state: CollectionState) -> Dict[str, int]:
+    def count_properties(self, collection: List[str]) -> Dict[str, int]:
         Counter = collections.Counter()
-        for block_name in state.prog_items[self.player]:
-            count = state.prog_items[self.player][block_name]
-            if count == 0:
-                continue
+        for block_name in collection:
             block = next(b for b in self.blocks if b['name'] == block_name)
             for property in block['properties']:
-                if state.has(block_name, self.player):
-                # if self.can_make_block(state, block_name):
+                if block_name in collection:
                     Counter[property] += 1
         return Counter
 
-    def count_colors(self, state: CollectionState) -> Dict[str, int]:
+    def count_colors(self, collection: List[str]) -> Dict[str, int]:
         Counter = collections.Counter()
-        for block_name in state.prog_items[self.player]:
-            count = state.prog_items[self.player][block_name]
-            if count == 0:
-                continue
+        for block_name in collection:
             block = next(b for b in self.blocks if b['name'] == block_name)
             color = block['color']
-            if state.has(block_name, self.player):
-            # if self.can_make_block(state, block_name):
+            if block_name in collection:
                 Counter[color] += 1
         return Counter
 
-    def can_rainbow(self, state: CollectionState) -> bool:
-        color_counter = self.count_colors(state)
+    def can_rainbow(self, collection: List[str]) -> bool:
+        color_counter = self.count_colors(collection)
         return len(color_counter) >= 7
 
-    def can_do_recipe(self, state: CollectionState, recipe) -> bool:
-        # print(f"checking if can do recipe {recipe['product']} with state {state.prog_items[self.player]}")
-
+    def can_do_recipe(self, collection: List[str], recipe) -> bool:
         if recipe['type'] == 'Starstruck':
-            return self.can_make_block(state, "Shooting star") and all(self.has_ingredient(state, ingredient) for ingredient in recipe['ingredients'])
+            return "Shooting star" in collection and all(self.has_ingredient(collection, ingredient) for ingredient in recipe['ingredients'])
         elif recipe['type'] == 'Quasar':
-            return self.can_make_block(state, "Black hole")
+            return "Black hole" in collection
         elif recipe['type'] == 'Void':
-            return self.can_make_block(state, "Antimatter")
+            return "Antimatter" in collection
         elif recipe['type'] == 'EvolvingFire':
-            return self.can_make_block(state, "Wood") or self.can_make_block(state, "Oil") and self.can_make_block(state, "Fire")
+            return "Wood" in collection or "Oil" in collection and "Fire" in collection
         elif recipe['product'] == 'Rainbow':
-            return self.can_rainbow(state)
+            return self.can_rainbow(collection)
         elif recipe['type'] in ('Combine', 'Combust', 'Quickening', 'BlackHole', 'Time', 'DissolveMetals', 'Fall'):
-            return all(self.has_ingredient(state, ingredient) for ingredient in recipe['ingredients'])
+            return all(self.has_ingredient(collection, ingredient) for ingredient in recipe['ingredients'])
         return True
 
     def set_rules(self) -> None:
-        items_with_no_rule = set()
-
-        for item in self.blocks:
-            if not item['unlockedByDefault']:
-                set_rule(
-                    self.multiworld.get_location(item['name'], self.player),
-                    lambda state: False
-                )
-                items_with_no_rule.add(item['name'])
-
         for recipe in self.recipes:
-            add_rule(
-                self.multiworld.get_location(recipe['product'], self.player),
-                lambda state, r=recipe: self.can_do_recipe(state, r),
-                "or"
-            )
-            items_with_no_rule.discard(recipe['product'])
-
-        for item in items_with_no_rule:
             set_rule(
-                self.multiworld.get_location(item, self.player),
-                lambda state: True
+                self.multiworld.get_location(recipe['product'], self.player),
+                lambda state, r=recipe: self.can_craft_block(state, r['product'])
             )
         
         progression_items = [item['blockName'] for item in self.blocks if self.classify_item(item['category']) == ItemClassification.progression]
