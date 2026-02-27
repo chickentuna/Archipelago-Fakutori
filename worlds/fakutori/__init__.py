@@ -19,15 +19,11 @@ from worlds.stardew_valley.stardew_rule import state
 from .items import FakutoriItem
 from .locations import FakutoriLocation
 from .options import FakutoriOptions
-from settings import Group
 from .data.data import colors
 from worlds.generic.Rules import add_rule, set_rule, forbid_item, add_item_rule
 
 def data_path(*args):
     return os.path.join(os.path.dirname(__file__), 'data', *args)
-
-class FakutoriSettings(Group):
-    pass
 
 def print_return(func):
     def wrapper(*args, **kwargs):
@@ -53,7 +49,6 @@ class Fakutori(World):
 
     options_dataclass = FakutoriOptions  # options the player can set
     options: FakutoriOptions  # typing hints for option results
-    settings: typing.ClassVar[FakutoriSettings]  # will be automatically assigned from type hint
     topology_present = True  # show path to required location checks in spoiler
 
     blocks = []
@@ -65,6 +60,24 @@ class Fakutori(World):
     with open(data_path('recipes.json'), 'r') as stream:
         recipes_json = json.load(stream)
     recipes = [r for r in recipes_json['recipes'] if r['type'] != 'Generator']
+    for c in colors:
+        recipes.append({
+            "type": "Combine",
+            "product": f"Quartz {c.lower()}",
+            "ingredients": [
+                {
+                "blockName": "Sand",
+                "quantity": 1,
+                "ingredientType": "Block"
+                },
+                {
+                "blockName": "Time",
+                "quantity": 1,
+                "ingredientType": "Block"
+                }
+            ]
+        })
+
 
     item_name_to_id = {}
     location_name_to_id = {}
@@ -186,7 +199,7 @@ class Fakutori(World):
             return blockName in collection
         elif ingredientType == 'Property':
             prop_counter = self.count_properties(collection)
-            return prop_counter[ingredient['property']] >= quantity            
+            return prop_counter[ingredient['property']] >= quantity
         elif ingredientType == 'Color':
             color_counter = self.count_colors(collection)
             return color_counter[ingredient['color']] >= quantity
@@ -236,6 +249,6 @@ class Fakutori(World):
                 lambda state, r=recipe: self.can_craft_block(state, r['product'])
             )
         
-        progression_items = [item['blockName'] for item in self.blocks if self.classify_item(item['category']) == ItemClassification.progression]
+        progression_items = [item['name'] for item in self.blocks if self.classify_item(item['category']) == ItemClassification.progression]
         self.multiworld.completion_condition[self.player] = lambda state: state.has_all(progression_items, self.player)
         

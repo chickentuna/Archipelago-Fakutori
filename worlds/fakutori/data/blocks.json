@@ -2,7 +2,6 @@
   "blocks": [
     {
       "name": "Fire",
-      "blockName": "Fire",
       "id": 11,
       "category": "Raw element",
       "color": "Orange",
@@ -16,7 +15,6 @@
     },
     {
       "name": "Water",
-      "blockName": "Water",
       "id": 14,
       "category": "Raw element",
       "color": "Blue",
@@ -29,7 +27,6 @@
     },
     {
       "name": "Earth",
-      "blockName": "Earth",
       "id": 15,
       "category": "Raw element",
       "color": "Brown",
@@ -41,7 +38,6 @@
     },
     {
       "name": "Air",
-      "blockName": "Air",
       "id": 16,
       "category": "Raw element",
       "color": "White",
@@ -53,7 +49,6 @@
     },
     {
       "name": "Wood",
-      "blockName": "Wood",
       "id": 17,
       "category": "Organic",
       "color": "Brown",
@@ -65,7 +60,6 @@
     },
     {
       "name": "Coal",
-      "blockName": "Coal",
       "id": 18,
       "category": "Organic",
       "color": "Black",
@@ -76,7 +70,6 @@
     },
     {
       "name": "Smoke",
-      "blockName": "Smoke",
       "id": 20,
       "category": "Misc elements",
       "color": "Brown",
@@ -87,7 +80,6 @@
     },
     {
       "name": "Lava",
-      "blockName": "Lava",
       "id": 21,
       "category": "Mineral",
       "color": "Orange",
@@ -99,7 +91,6 @@
     },
     {
       "name": "Dust",
-      "blockName": "Dust",
       "id": 22,
       "category": "Mineral",
       "color": "Brown",
@@ -110,7 +101,6 @@
     },
     {
       "name": "Steam",
-      "blockName": "Steam",
       "id": 28,
       "category": "Energy",
       "color": "White",
@@ -122,7 +112,6 @@
     },
     {
       "name": "Fizzy water",
-      "blockName": "Fizzy water",
       "id": 39,
       "category": "Misc elements",
       "color": "Blue",
@@ -134,7 +123,6 @@
     },
     {
       "name": "Shooting star",
-      "blockName": "Shooting star",
       "id": 27,
       "category": "Misc elements",
       "color": "Yellow",
@@ -147,7 +135,6 @@
     },
     {
       "name": "Ether",
-      "blockName": "Ether",
       "id": 26,
       "category": "Misc elements",
       "color": "Pink",
@@ -159,7 +146,6 @@
     },
     {
       "name": "Stone",
-      "blockName": "Stone",
       "id": 23,
       "category": "Mineral",
       "color": "Grey",
@@ -170,7 +156,6 @@
     },
     {
       "name": "Sand",
-      "blockName": "Sand",
       "id": 24,
       "category": "Mineral",
       "color": "Pink",
@@ -181,7 +166,6 @@
     },
     {
       "name": "Acid",
-      "blockName": "Acid",
       "id": 40,
       "category": "Misc elements",
       "color": "Green",
@@ -193,7 +177,6 @@
     },
     {
       "name": "Meteorite",
-      "blockName": "Meteorite",
       "id": 25,
       "category": "Mineral",
       "color": "Brown",
@@ -204,7 +187,6 @@
     },
     {
       "name": "Rainbow",
-      "blockName": "Rainbow",
       "id": 48,
       "category": "Magical",
       "color": "Multicolor",
@@ -216,7 +198,6 @@
     },
     {
       "name": "Luck",
-      "blockName": "Luck",
       "id": 34,
       "category": "Concept",
       "color": "Green",
@@ -229,7 +210,6 @@
     },
     {
       "name": "Magic",
-      "blockName": "Magic",
       "id": 35,
       "category": "Concept",
       "color": "Red",
@@ -242,7 +222,6 @@
     },
     {
       "name": "Time",
-      "blockName": "Time",
       "id": 36,
       "category": "Concept",
       "color": "Purple",
@@ -255,7 +234,6 @@
     },
     {
       "name": "Entropy",
-      "blockName": "Entropy",
       "id": 37,
       "category": "Concept",
       "color": "Blue",
@@ -268,7 +246,6 @@
     },
     {
       "name": "Void",
-      "blockName": "Void",
       "id": 38,
       "category": "Concept",
       "color": "Black",
@@ -281,7 +258,6 @@
     },
     {
       "name": "Oil",
-      "blockName": "Oil",
       "id": 19,
       "category": "Organic",
       "color": "Black",
@@ -294,7 +270,6 @@
     },
     {
       "name": "Yellow fire",
-      "blockName": "Yellow fire",
       "id": 12,
       "category": "Energy",
       "color": "Yellow",
@@ -308,7 +283,6 @@
     },
     {
       "name": "Blue fire",
-      "blockName": "Blue fire",
       "id": 13,
       "category": "Energy",
       "color": "Blue",
@@ -321,7 +295,6 @@
     },
     {
       "name": "Copper",
-      "blockName": "Copper",
       "id": 29,
       "category": "Metal",
       "color": "Orange",
@@ -334,7 +307,6 @@
     },
     {
       "name": "Iron",
-      "blockName": "Iron",
       "id": 30,
       "category": "Metal",
       "color": "Grey",
@@ -347,7 +319,6 @@
     },
     {
       "name": "Silver",
-      "blockName": "Silver",
       "id": 31,
       "category": "Metal",
       "color": "Blue",
@@ -361,7 +332,6 @@
     },
     {
       "name": "Gold",
-      "blockName": "Gold",
       "id": 32,
       "category": "Metal",
       "color": "Yellow",
@@ -374,7 +344,6 @@
     },
     {
       "name": "Quicksilver",
-      "blockName": "Quicksilver",
       "id": 43,
       "category": "Metal",
       "color": "Grey",
@@ -387,7 +356,6 @@
     },
     {
       "name": "Electricity",
-      "blockName": "Electricity",
       "id": 42,
       "category": "Energy",
       "color": "Yellow",
@@ -400,7 +368,6 @@
     },
     {
       "name": "Plasma",
-      "blockName": "Plasma",
       "id": 41,
       "category": "Energy",
       "color": "Purple",
@@ -412,20 +379,7 @@
       ]
     },
     {
-      "name": "Quartz",
-      "blockName": "Quartz",
-      "id": 47,
-      "category": "Mineral",
-      "color": "Colorless",
-      "unlockedByDefault": false,
-      "properties": [
-        "Weighty",
-        "Quartz"
-      ]
-    },
-    {
       "name": "Quartz black",
-      "blockName": "Quartz",
       "id": 51,
       "category": "Mineral",
       "color": "Black",
@@ -437,7 +391,6 @@
     },
     {
       "name": "Quartz blue",
-      "blockName": "Quartz",
       "id": 52,
       "category": "Mineral",
       "color": "Blue",
@@ -449,7 +402,6 @@
     },
     {
       "name": "Quartz brown",
-      "blockName": "Quartz",
       "id": 53,
       "category": "Mineral",
       "color": "Brown",
@@ -461,7 +413,6 @@
     },
     {
       "name": "Quartz green",
-      "blockName": "Quartz",
       "id": 54,
       "category": "Mineral",
       "color": "Green",
@@ -473,7 +424,6 @@
     },
     {
       "name": "Quartz grey",
-      "blockName": "Quartz",
       "id": 55,
       "category": "Mineral",
       "color": "Grey",
@@ -485,7 +435,6 @@
     },
     {
       "name": "Quartz orange",
-      "blockName": "Quartz",
       "id": 56,
       "category": "Mineral",
       "color": "Orange",
@@ -497,7 +446,6 @@
     },
     {
       "name": "Quartz pink",
-      "blockName": "Quartz",
       "id": 57,
       "category": "Mineral",
       "color": "Pink",
@@ -509,7 +457,6 @@
     },
     {
       "name": "Quartz purple",
-      "blockName": "Quartz",
       "id": 58,
       "category": "Mineral",
       "color": "Purple",
@@ -521,7 +468,6 @@
     },
     {
       "name": "Quartz red",
-      "blockName": "Quartz",
       "id": 59,
       "category": "Mineral",
       "color": "Red",
@@ -533,7 +479,6 @@
     },
     {
       "name": "Quartz white",
-      "blockName": "Quartz",
       "id": 60,
       "category": "Mineral",
       "color": "White",
@@ -545,7 +490,6 @@
     },
     {
       "name": "Quartz yellow",
-      "blockName": "Quartz",
       "id": 61,
       "category": "Mineral",
       "color": "Yellow",
@@ -557,7 +501,6 @@
     },
     {
       "name": "Ruby",
-      "blockName": "Ruby",
       "id": 33,
       "category": "Mineral",
       "color": "Red",
@@ -569,7 +512,6 @@
     },
     {
       "name": "Light",
-      "blockName": "Light",
       "id": 44,
       "category": "Magical",
       "color": "Yellow",
@@ -580,7 +522,6 @@
     },
     {
       "name": "Darkness",
-      "blockName": "Darkness",
       "id": 45,
       "category": "Magical",
       "color": "Black",
@@ -591,7 +532,6 @@
     },
     {
       "name": "Antimatter",
-      "blockName": "Antimatter",
       "id": 46,
       "category": "Energy",
       "color": "White",
@@ -604,7 +544,6 @@
     },
     {
       "name": "Black hole",
-      "blockName": "Black hole",
       "id": 49,
       "category": "Unique",
       "color": "Black",
@@ -618,7 +557,6 @@
     },
     {
       "name": "Quasar",
-      "blockName": "Quasar",
       "id": 50,
       "category": "Legendary",
       "color": "Multicolor",
@@ -632,7 +570,6 @@
     },
     {
       "name": "Generator fire",
-      "blockName": "Fire generator",
       "id": 62,
       "category": "Machine",
       "color": "Machine",
@@ -641,7 +578,6 @@
     },
     {
       "name": "Generator water",
-      "blockName": "Water generator",
       "id": 1,
       "category": "Machine",
       "color": "Machine",
@@ -650,7 +586,6 @@
     },
     {
       "name": "Generator earth",
-      "blockName": "Earth generator",
       "id": 2,
       "category": "Machine",
       "color": "Machine",
@@ -659,7 +594,6 @@
     },
     {
       "name": "Generator air",
-      "blockName": "Air generator",
       "id": 3,
       "category": "Machine",
       "color": "Machine",
@@ -668,7 +602,6 @@
     },
     {
       "name": "Wall",
-      "blockName": "Wall",
       "id": 6,
       "category": "Machine",
       "color": "Machine",
@@ -677,7 +610,6 @@
     },
     {
       "name": "Conveyor",
-      "blockName": "Conveyor",
       "id": 7,
       "category": "Machine",
       "color": "Machine",
@@ -686,7 +618,6 @@
     },
     {
       "name": "Combiner",
-      "blockName": "Combiner",
       "id": 4,
       "category": "Machine",
       "color": "Machine",
@@ -695,7 +626,6 @@
     },
     {
       "name": "Disassembler",
-      "blockName": "Disassembler",
       "id": 5,
       "category": "Machine",
       "color": "Machine",
@@ -704,7 +634,6 @@
     },
     {
       "name": "Pusher",
-      "blockName": "Pusher",
       "id": 10,
       "category": "Machine",
       "color": "Machine",
@@ -713,7 +642,6 @@
     },
     {
       "name": "Puller",
-      "blockName": "Puller",
       "id": 63,
       "category": "Machine",
       "color": "Machine",
@@ -722,7 +650,6 @@
     },
     {
       "name": "Conveyor alternate",
-      "blockName": "Toggle conveyor",
       "id": 8,
       "category": "Machine",
       "color": "Machine",
@@ -731,7 +658,6 @@
     },
     {
       "name": "Cross conveyor",
-      "blockName": "Cross conveyor",
       "id": 9,
       "category": "Machine",
       "color": "Machine",

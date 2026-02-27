@@ -852,55 +852,6 @@
       ]
     },
     {
-      "type": "Combine",
-      "product": "Quartz",
-      "byproduct": null,
-      "displayOnly": false,
-      "moneyCost": 0,
-      "manaCost": 0,
-      "timeCost": 1.0,
-      "probability": 1.0,
-      "ingredients": [
-        {
-          "blockName": "Sand",
-          "quantity": 1,
-          "ingredientType": "Block"
-        },
-        {
-          "blockName": "Time",
-          "quantity": 1,
-          "ingredientType": "Block"
-        }
-      ]
-    },
-    {
-      "type": "?",
-      "product": "Quartz",
-      "byproduct": null,
-      "displayOnly": true,
-      "moneyCost": 0,
-      "manaCost": 0,
-      "timeCost": 0.0,
-      "probability": 1.0,
-      "ingredients": [
-        {
-          "blockName": "Sand",
-          "quantity": 0,
-          "ingredientType": "Block"
-        },
-        {
-          "blockName": "Time",
-          "quantity": 0,
-          "ingredientType": "Block"
-        },
-        {
-          "blockName": "NO_BLOCK",
-          "quantity": 0,
-          "ingredientType": "Color"
-        }
-      ]
-    },
-    {
       "type": "Rainbow",
       "product": "Rainbow",
       "byproduct": null,

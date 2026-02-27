@@ -1,6 +1,8 @@
 from Options import Choice, DeathLink, DefaultOnToggle, Range, StartInventoryPool, PerGameCommonOptions
 from dataclasses import dataclass
 
+# TODO: reduce prices option
+
 @dataclass
 class FakutoriOptions(PerGameCommonOptions):
     death_link: DeathLink
