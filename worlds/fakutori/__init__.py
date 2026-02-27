@@ -20,7 +20,7 @@ from .items import FakutoriItem
 from .locations import FakutoriLocation
 from .options import FakutoriOptions
 from .data.data import colors
-from worlds.generic.Rules import add_rule, set_rule, forbid_item, add_item_rule
+from worlds.generic.Rules import set_rule, add_rule, forbid_item, add_item_rule
 
 def data_path(*args):
     return os.path.join(os.path.dirname(__file__), 'data', *args)
@@ -87,7 +87,6 @@ class Fakutori(World):
             location_name_to_id[unlockable['name']] = unlockable['id']
     item_name_to_id["nothing"] = 999  # for junk filling
     # TODO: replace/add coins/mana/star power
-    
 
     # Items can be grouped using their names to allow easy checking if any item
     # from that group has been collected. Group names can also be used for !hint
@@ -243,11 +242,20 @@ class Fakutori(World):
         return True
 
     def set_rules(self) -> None:
+        already_has_rule = set()
         for recipe in self.recipes:
-            set_rule(
-                self.multiworld.get_location(recipe['product'], self.player),
-                lambda state, r=recipe: self.can_craft_block(state, r['product'])
-            )
+            if recipe['product'] in already_has_rule:
+                add_rule(
+                    self.multiworld.get_location(recipe['product'], self.player),
+                    lambda state, r=recipe: self.can_craft_block(state, r['product']),
+                    'or'
+                )
+            else:
+                set_rule(
+                    self.multiworld.get_location(recipe['product'], self.player),
+                    lambda state, r=recipe: self.can_craft_block(state, r['product'])
+                )
+                already_has_rule.add(recipe['product'])
         
         progression_items = [item['name'] for item in self.blocks if self.classify_item(item['category']) == ItemClassification.progression]
         self.multiworld.completion_condition[self.player] = lambda state: state.has_all(progression_items, self.player)

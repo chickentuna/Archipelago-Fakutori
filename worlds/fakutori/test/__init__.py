@@ -14,6 +14,11 @@ class MyGameTestBase(WorldTestBase):
         items = [["Luck", "Stone"]]
         self.assertAccessDependency(locations, items, only_check_listed=True)
 
+    def test_lava(self) -> None:
+        locations = ["Lava"]
+        items = [["Lava"]]
+        self.assertAccessDependency(locations, items, only_check_listed=True)
+
     def test_sand(self) -> None:
         locations = ["Sand"]
         items = [["Stone", "Air"]]
