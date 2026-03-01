@@ -4,7 +4,7 @@ import os
 import collections
 import json
 import typing
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 
 # see notification class for more details on how to customize notifs
@@ -173,23 +173,30 @@ class Fakutori(World):
 
 
     def get_every_craftable_block(self, state: CollectionState) -> List[str]:
+        unlocked_blocks = state.prog_items[self.player].keys()
+        return self.get_every_craftable_block_from(unlocked_blocks)
+    
+    def get_every_craftable_block_from(self, unlocked_blocks: List[str]) -> List[str]:
+        virtual_collection = set()
+
         unlocked_recipes = []
-        for name in state.prog_items[self.player]:
+        for name in unlocked_blocks:
             unlocked_recipes += [r for r in self.recipes if r['product'] == name]
-        virtual_collection = ['Fire', 'Water', 'Earth', 'Air']
-        to_add = []
+        for b in self.blocks:
+            if b['category'] == 'Raw element' and b['name'] in unlocked_blocks:
+                virtual_collection.add(b['name'])
+        
         new_crafted = True
         while new_crafted:
             new_crafted = False
             for recipe in unlocked_recipes:
                 if recipe["product"] not in virtual_collection and self.can_do_recipe(virtual_collection, recipe):
-                    to_add.append(recipe['product'])
+                    virtual_collection.add(recipe['product'])
                     new_crafted = True
                     break
-            virtual_collection += to_add
         return virtual_collection
 
-    def has_ingredient(self, collection: List[str], ingredient) -> bool:
+    def has_ingredient(self, collection: Set[str], ingredient) -> bool:
         blockName = ingredient['blockName']
         quantity = ingredient['quantity']
         ingredientType = ingredient['ingredientType']
@@ -204,7 +211,7 @@ class Fakutori(World):
             return color_counter[ingredient['color']] >= quantity
         return True
 
-    def count_properties(self, collection: List[str]) -> Dict[str, int]:
+    def count_properties(self, collection: Set[str]) -> Dict[str, int]:
         Counter = collections.Counter()
         for block_name in collection:
             block = next(b for b in self.blocks if b['name'] == block_name)
@@ -213,7 +220,7 @@ class Fakutori(World):
                     Counter[property] += 1
         return Counter
 
-    def count_colors(self, collection: List[str]) -> Dict[str, int]:
+    def count_colors(self, collection: Set[str]) -> Dict[str, int]:
         Counter = collections.Counter()
         for block_name in collection:
             block = next(b for b in self.blocks if b['name'] == block_name)
@@ -222,11 +229,11 @@ class Fakutori(World):
                 Counter[color] += 1
         return Counter
 
-    def can_rainbow(self, collection: List[str]) -> bool:
+    def can_rainbow(self, collection: Set[str]) -> bool:
         color_counter = self.count_colors(collection)
         return len(color_counter) >= 7
 
-    def can_do_recipe(self, collection: List[str], recipe) -> bool:
+    def can_do_recipe(self, collection: Set[str], recipe) -> bool:
         if recipe['type'] == 'Starstruck':
             return "Shooting star" in collection and all(self.has_ingredient(collection, ingredient) for ingredient in recipe['ingredients'])
         elif recipe['type'] == 'Quasar':
