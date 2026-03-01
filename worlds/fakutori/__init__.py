@@ -54,30 +54,13 @@ class Fakutori(World):
     blocks = []
     with open(data_path('blocks.json'), 'r') as stream:
         blocks_json = json.load(stream)
-    blocks = [b for b in blocks_json['blocks'] if 'Generator' not in b['name']]
+    # TODO: add generators, because why not
+    blocks = [b for b in blocks_json['blocks'] if 'Generator' not in b['name']]    
 
     recipes = []
     with open(data_path('recipes.json'), 'r') as stream:
         recipes_json = json.load(stream)
     recipes = [r for r in recipes_json['recipes'] if r['type'] != 'Generator']
-    for c in colors:
-        recipes.append({
-            "type": "Combine",
-            "product": f"Quartz {c.lower()}",
-            "ingredients": [
-                {
-                "blockName": "Sand",
-                "quantity": 1,
-                "ingredientType": "Block"
-                },
-                {
-                "blockName": "Time",
-                "quantity": 1,
-                "ingredientType": "Block"
-                }
-            ]
-        })
-
 
     item_name_to_id = {}
     location_name_to_id = {}
@@ -156,7 +139,6 @@ class Fakutori(World):
         # add main area's locations to main area (all but final boss)
     
         locations = {}
-        # for unlockable in [u for u in self.blocks if not u['default']]:
         for location_name in self.location_name_to_id.keys():
             locations[location_name] = self.location_name_to_id[location_name]
 
@@ -216,8 +198,7 @@ class Fakutori(World):
         for block_name in collection:
             block = next(b for b in self.blocks if b['name'] == block_name)
             for property in block['properties']:
-                if block_name in collection:
-                    Counter[property] += 1
+                Counter[property] += 1
         return Counter
 
     def count_colors(self, collection: Set[str]) -> Dict[str, int]:
@@ -225,7 +206,10 @@ class Fakutori(World):
         for block_name in collection:
             block = next(b for b in self.blocks if b['name'] == block_name)
             color = block['color']
-            if block_name in collection:
+            if color == 'Colorless':
+                for c in colors:
+                    Counter[c] += 1
+            else:
                 Counter[color] += 1
         return Counter
 
