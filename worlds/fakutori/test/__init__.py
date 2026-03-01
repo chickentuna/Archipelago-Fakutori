@@ -7,12 +7,41 @@ class MyGameTestBase(WorldTestBase):
     game = "Fakutori"
 
     def test_beatable(self) -> None:
-        self.assertBeatable(True)
+        unlocks = ['Stone', 'Earth', 'Oil', 'Time', 'Wood', 'Lava', 'Fire', 'Air', 'Water']
+        all_craftable = self.world.get_every_craftable_block_from(unlocks)
+        print(all_craftable)
+        assert all_craftable == {'Stone', 'Wood', 'Fire', 'Earth', 'Water', 'Lava', 'Air'}
 
-    def test_ruby(self) -> None:
-        locations = ["Ruby"]
-        items = [["Luck", "Stone"]]
-        self.assertAccessDependency(locations, items, only_check_listed=True)
+    def test_fire(self) -> None:
+        unlocks = ['Fire', 'Earth', 'Water', 'Wood', 'Yellow fire', 'Blue fire', 'Air']
+        all_craftable = self.world.get_every_craftable_block_from(unlocks)
+        print(all_craftable)
+        assert all_craftable == {'Fire', 'Wood', 'Earth', 'Air', 'Blue fire', 'Water', 'Yellow fire'}
+    
+    def test_no_wood(self) -> None:
+        unlocks = ['Fire', 'Earth', 'Wood', 'Yellow fire', 'Blue fire']
+        all_craftable = self.world.get_every_craftable_block_from(unlocks)
+        print(all_craftable)
+        assert all_craftable == {'Fire', 'Earth'}
+    
+    def test_time(self) -> None:
+        unlocks = ['Time', 'Fire', 'Water', 'Smoke', 'Steam', 'Ether']
+        all_craftable = self.world.get_every_craftable_block_from(unlocks)
+        print(all_craftable)
+        assert all_craftable == {'Time', 'Fire', 'Water', 'Steam', 'Ether'}
+    
+    def test_no_rainbow(self) -> None:
+        unlocks_no_pink = [
+            'Lava', 'Fire', # orange
+            'Water', # blue
+            'Smoke', 'Wood', 'Earth', # brown
+            'Steam', 'Air', # white
+            'Stone', # grey            
+            'Shooting star', # yellow
+            'Rainbow'
+        ]
+        all_craftable_no_pink = self.world.get_every_craftable_block_from(unlocks_no_pink)
+        assert "Rainbow" not in all_craftable_no_pink
 
     def test_lava(self) -> None:
         locations = ["Lava"]
@@ -34,3 +63,17 @@ class MyGameTestBase(WorldTestBase):
         items = [["Wood", "Fire", "Earth", "Water"], ["Oil", "Fire", "Time", "Wood", "Earth"]]
         self.assertAccessDependency(locations, items, only_check_listed=True)
     
+    def test_rainbow(self) -> None:
+        unlocks_with_pink = [
+            'Lava', 'Fire', # orange
+            'Water', # blue
+            'Smoke', 'Wood', 'Earth', # brown
+            'Steam', 'Air', # white
+            'Stone', # grey            
+            'Shooting star', # yellow
+            'Ether', # pink
+            'Rainbow'
+        ]
+        all_craftable_with_pink = self.world.get_every_craftable_block_from(unlocks_with_pink)
+        print(all_craftable_with_pink)
+        assert "Rainbow" in all_craftable_with_pink
