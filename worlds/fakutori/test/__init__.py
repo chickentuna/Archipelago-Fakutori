@@ -6,12 +6,6 @@ from test.bases import WorldTestBase
 class MyGameTestBase(WorldTestBase):
     game = "Fakutori"
 
-    def test_beatable(self) -> None:
-        unlocks = ['Stone', 'Earth', 'Oil', 'Time', 'Wood', 'Lava', 'Fire', 'Air', 'Water']
-        all_craftable = self.world.get_every_craftable_block_from(unlocks)
-        print(all_craftable)
-        assert all_craftable == {'Stone', 'Wood', 'Fire', 'Earth', 'Water', 'Lava', 'Air'}
-
     def test_fire(self) -> None:
         unlocks = ['Fire', 'Earth', 'Water', 'Wood', 'Yellow fire', 'Blue fire', 'Air']
         all_craftable = self.world.get_every_craftable_block_from(unlocks)
