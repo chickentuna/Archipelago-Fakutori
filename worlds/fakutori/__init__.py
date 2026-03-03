@@ -68,8 +68,9 @@ class Fakutori(World):
         item_name_to_id[unlockable['name']] = unlockable['id']
         if not unlockable['unlockedByDefault']:
             location_name_to_id[unlockable['name']] = unlockable['id']
-    item_name_to_id["nothing"] = 999  # for junk filling
-    # TODO: replace/add coins/mana/star power
+    item_name_to_id["500 gold"] = 1000  
+    item_name_to_id["500 mana"] = 1001  
+    item_name_to_id["Full starpower"] = 1002
 
     # Items can be grouped using their names to allow easy checking if any item
     # from that group has been collected. Group names can also be used for !hint
@@ -117,11 +118,21 @@ class Fakutori(World):
 
         # itempool and number of locations should match up.
         # If this is not the case we want to fill the itempool with junk.
-        junk = 0  # calculate this based on player options
-        self.multiworld.itempool += [self.create_item("nothing") for _ in range(junk)]
+        
         for b in self.blocks:
             if b['unlockedByDefault']:
                 self.multiworld.push_precollected(self.create_item(b['name']))
+                
+        total_locations = len(self.multiworld.get_unfilled_locations(self.player))
+        itempool += [self.create_filler() for _ in range(total_locations - len(itempool))]
+      
+    filler_choices = ("Full starpower", "500 mana", "500 gold", "1000 gold")
+    filler_weights = (1, 2, 1, 4)
+
+    def get_filler_item_name(self) -> str:
+        if self.options.stabilize_item_pool:
+            return "Nothing"
+        return self.random.choices(self.filler_choices, self.filler_weights)[0]
 
 
     def generate_early(self) -> None:
@@ -144,6 +155,9 @@ class Fakutori(World):
 
         main_region.add_locations(locations, FakutoriLocation)
         #TODO: add the optional challenges
+
+        for i in range(self.options.extra_shop_checks.value):
+            main_region.add_locations({f"Extra Shop {i+1}": 1000 + i}, FakutoriLocation)
         
         self.multiworld.regions.append(main_region)
 
@@ -250,4 +264,6 @@ class Fakutori(World):
         
         progression_items = [item['name'] for item in self.blocks if self.classify_item(item['category']) == ItemClassification.progression]
         self.multiworld.completion_condition[self.player] = lambda state: state.has_all(progression_items, self.player)
-        
+    
+    def fill_slot_data(self) -> Dict[str, Any]:
+        return self.options.as_dict("victory_condition", "shop_price", "extra_shop_checks")
