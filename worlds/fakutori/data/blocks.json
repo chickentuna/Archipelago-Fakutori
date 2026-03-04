@@ -460,7 +460,7 @@
     },
     {
       "name": "Generator fire",
-      "id": 62,
+      "id": 100,
       "category": "Machine",
       "color": "Machine",
       "unlockedByDefault": true,

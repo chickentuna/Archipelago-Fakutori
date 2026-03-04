@@ -194,8 +194,8 @@ class Fakutori(World):
         #TODO: add the optional challenges
 
         for i in range(self.options.extra_shop_checks.value):
-            main_region.add_locations({f"Extra Shop {i+1}": 1000 + i}, FakutoriLocation)
-            self.location_name_to_id[f"Extra Shop {i+1}"] = 1000 + i
+            main_region.add_locations({f"Extra shop {i+1}": 2000 + i}, FakutoriLocation)
+            self.location_name_to_id[f"Extra shop {i+1}"] = 2000 + i
         
         self.multiworld.regions.append(main_region)
 
@@ -313,8 +313,10 @@ class Fakutori(World):
     
         if self.options.victory_condition.value == VictoryCondition.option_all_blocks_discovered:
             progression_items = [item.name for item in self.blocks if self.classify_item(item.category) == ItemClassification.progression]
-            progression_items_that_are_locations = [item for item in progression_items if item in self.location_name_to_id]
-            self.multiworld.completion_condition[self.player] = lambda state,pi=progression_items_that_are_locations: all([loc.name in pi for loc in state.locations_checked])
+            # TODO: i think this completion condition is bogus.
+            # I need to somehow check every block has been spawned (= every location checked)
+            # Do I need a rule on a location called victory that is accessible if every element is acquired?
+            self.multiworld.completion_condition[self.player] = lambda state: state.has_all(progression_items, self.player)
         elif self.options.victory_condition.value == VictoryCondition.option_spawn_quasar:
             self.multiworld.completion_condition[self.player] = lambda state: any([loc.name == "Quasar" for loc in state.locations_checked])
         else:
