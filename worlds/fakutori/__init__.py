@@ -324,4 +324,4 @@ class Fakutori(World):
             pass
 
     def fill_slot_data(self) -> Dict[str, Any]:
-        return self.options.as_dict("victory_condition", "shop_price", "extra_shop_checks")
+        return self.options.as_dict("victory_condition", "shop_price", "extra_shop_checks", "start_with_disassembler", "start_with_base_machines")
