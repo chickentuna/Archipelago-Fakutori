@@ -3,10 +3,10 @@ from dataclasses import dataclass
 
 class VictoryCondition(Choice):
     display_name = "Victory Condition"
-    option_all_blocks_discovered = 0
+    option_all_elements_discovered = 0
     option_all_block_challenges = 1
     option_spawn_quasar = 2
-    default = 0
+    default = 2
 
 class ShopPrice(Choice):
     display_name = "Machine Unlock Price Reduction"

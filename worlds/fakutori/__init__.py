@@ -310,15 +310,15 @@ class Fakutori(World):
                     )
                     already_has_rule.add(recipe.product)
 
-    
-        if self.options.victory_condition.value == VictoryCondition.option_all_blocks_discovered:
-            progression_items = [item.name for item in self.blocks if self.classify_item(item.category) == ItemClassification.progression]
-            # TODO: i think this completion condition is bogus.
-            # I need to somehow check every block has been spawned (= every location checked)
-            # Do I need a rule on a location called victory that is accessible if every element is acquired?
-            self.multiworld.completion_condition[self.player] = lambda state: state.has_all(progression_items, self.player)
+        if self.options.victory_condition.value == VictoryCondition.option_all_elements_discovered:
+            all_block_locations = [block.name for block in self.blocks if block.category != "Machine" and not block.unlockedByDefault]
+            self.multiworld.completion_condition[self.player] = lambda state: all([block_location in [loc.name for loc in state.locations_checked] for block_location in all_block_locations])
+
         elif self.options.victory_condition.value == VictoryCondition.option_spawn_quasar:
-            self.multiworld.completion_condition[self.player] = lambda state: any([loc.name == "Quasar" for loc in state.locations_checked])
+            self.multiworld.get_location("Quasar", self.player).place_locked_item(self.create_event("Victory"))
+            self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
+
+
         else:
             # TODO: challenges
             pass
