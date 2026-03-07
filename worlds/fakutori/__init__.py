@@ -197,7 +197,7 @@ class Fakutori(World):
             print("all existing locations:", locations)
             for k in main_region.locations:
                 print(k.name)
-            main_region.locations.append(FakutoriLocation("Quasar", None, self.player, main_region))
+            main_region.locations.append(FakutoriLocation(self.player, "Quasar", None, main_region))
 
         main_region.add_locations(locations, FakutoriLocation)
         #TODO: add the optional challenges
