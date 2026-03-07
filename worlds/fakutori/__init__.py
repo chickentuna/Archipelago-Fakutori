@@ -96,7 +96,7 @@ class Fakutori(World):
     location_name_to_id = {}
     for unlockable in blocks:
         item_name_to_id[unlockable.name] = unlockable.id
-        if not unlockable.unlockedByDefault and not unlockable.name == 'Disassembler':
+        if not unlockable.unlockedByDefault and not unlockable.name == 'Disassembler' and not unlockable.name == 'Quasar':
             location_name_to_id[unlockable.name] = unlockable.id
     item_name_to_id["500 gold"] = 1000
     item_name_to_id["1000 gold"] = 1001
@@ -186,9 +186,18 @@ class Fakutori(World):
         if not self.options.start_with_disassembler.value:
             self.location_id_to_name[5] = 'Disassembler'
         
+        if self.options.victory_condition.value != VictoryCondition.option_spawn_quasar:
+            self.location_id_to_name[50] = 'Quasar'
+        
         locations = {}
         for location_name in self.location_name_to_id.keys():
             locations[location_name] = self.location_name_to_id[location_name]
+
+        if self.options.victory_condition.value == VictoryCondition.option_spawn_quasar:
+            print("all existing locations:", locations)
+            for k in main_region.locations:
+                print(k.name)
+            main_region.locations.append(FakutoriLocation("Quasar", None, self.player, main_region))
 
         main_region.add_locations(locations, FakutoriLocation)
         #TODO: add the optional challenges
