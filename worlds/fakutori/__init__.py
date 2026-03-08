@@ -200,7 +200,7 @@ class Fakutori(World):
             main_region.locations.append(FakutoriLocation(self.player, "Quasar", None, main_region))
 
         main_region.add_locations(locations, FakutoriLocation)
-        #TODO: add the optional challenges
+        #TODO: add the optional block challenges
 
         for i in range(self.options.extra_shop_checks.value):
             main_region.add_locations({f"Extra shop {i+1}": 2000 + i}, FakutoriLocation)
@@ -329,7 +329,7 @@ class Fakutori(World):
 
 
         else:
-            # TODO: challenges
+            # TODO: it's an optional block challenges
             pass
 
     def fill_slot_data(self) -> Dict[str, Any]:
