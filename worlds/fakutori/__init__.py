@@ -16,7 +16,6 @@ from BaseClasses import CollectionState, Region, Location, Item, Tutorial, ItemC
 from worlds.AutoWorld import World, WebWorld
 from worlds.LauncherComponents import Component, components, Type, launch as launch_component
 from worlds.generic import Rules
-from worlds.stardew_valley.stardew_rule import state
 from .items import FakutoriItem
 from .locations import FakutoriLocation
 from .options import FakutoriOptions, VictoryCondition
