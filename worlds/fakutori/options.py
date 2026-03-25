@@ -19,7 +19,7 @@ class ShopPrice(Choice):
     option_full_price = 100
     option_50_percent_off = 50
     option_90_percent_off = 10
-    default = 100
+    default = 50
 
 class StartWithDisassembler(DefaultOnToggle):
     """Disassembler is unlocked and its shop location is removed."""
