@@ -4,6 +4,7 @@ from dataclasses import dataclass
 import os
 import collections
 import json
+import pkgutil
 import typing
 from typing import Any, Dict, List, Optional, Set, Tuple
 
@@ -19,12 +20,10 @@ from worlds.generic import Rules
 from .items import FakutoriItem
 from .locations import FakutoriLocation
 from .options import FakutoriOptions, VictoryCondition
-from .data.data import colors
+from .data import colors
 from worlds.generic.Rules import set_rule, add_rule, forbid_item, add_item_rule
 import inspect
 
-def data_path(*args):
-    return os.path.join(os.path.dirname(__file__), 'data', *args)
 
 def print_return(func):
     def wrapper(*args, **kwargs):
@@ -74,13 +73,13 @@ class Fakutori(World):
     topology_present = True  # show path to required location checks in spoiler
 
     blocks: List[BlockData] = []
-    with open(data_path('blocks.json'), 'r') as stream:
-        blocks_json = json.load(stream)
+    stream = pkgutil.get_data(__name__, "data/blocks.json").decode("utf-8-sig")
+    blocks_json = json.loads(stream)
     blocks = [BlockData(**b) for b in blocks_json['blocks']]
 
     recipes: List[Recipe] = []
-    with open(data_path('recipes.json'), 'r') as stream:
-        recipes_json = json.load(stream)
+    stream = pkgutil.get_data(__name__, "data/recipes.json").decode("utf-8-sig")
+    recipes_json = json.loads(stream)
     recipes = [
         Recipe(
             type=r["type"],
@@ -287,7 +286,7 @@ class Fakutori(World):
         elif recipe.type == 'Void':
             return "Antimatter" in collection
         elif recipe.type == 'EvolvingFire':
-            return ("Wood" in collection or "Oil" in collection) and "Fire" in collection
+            return ("Coal" in collection or "Oil" in collection) and "Fire" in collection
         elif recipe.product == 'Rainbow':
             return self.can_rainbow(collection)
         elif recipe.type in ('Combine', 'Combust', 'Quickening', 'BlackHole', 'Time', 'DissolveMetals', 'Fall'):
