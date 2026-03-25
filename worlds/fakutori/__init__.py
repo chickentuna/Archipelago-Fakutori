@@ -286,7 +286,9 @@ class Fakutori(World):
         elif recipe.type == 'Void':
             return "Antimatter" in collection
         elif recipe.type == 'EvolvingFire':
-            return ("Coal" in collection or "Oil" in collection) and "Fire" in collection
+            has_the_fire = all(self.has_ingredient(collection, ingredient) for ingredient in recipe.ingredients)
+            has_the_fuel = "Coal" in collection or "Oil" in collection
+            return has_the_fuel and has_the_fire
         elif recipe.product == 'Rainbow':
             return self.can_rainbow(collection)
         elif recipe.type in ('Combine', 'Combust', 'Quickening', 'BlackHole', 'Time', 'DissolveMetals', 'Fall'):
