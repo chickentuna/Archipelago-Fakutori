@@ -56,24 +56,33 @@ class Fakutori(World):
             for r in json.load(_f)['recipes']
         ]
 
-    item_name_to_id: Dict[str, int] = {b.name: b.id for b in blocks}
-    item_name_to_id.update({
-        '500 gold':      FILLER_500_GOLD_ID,
-        '1000 gold':     FILLER_1000_GOLD_ID,
-        '500 mana':      FILLER_500_MANA_ID,
-        'Full starpower': FILLER_FULL_STARPOWER_ID,
-    })
+    # ── Items ─────────────────────────────────────────────────────────────────
+    _block_items: List[BlockData] = blocks
 
-    # Locations: non-default blocks, excluding Disassembler and Quasar (handled separately).
-    location_name_to_id: Dict[str, int] = {
-        b.name: b.id
-        for b in blocks
-        if not b.unlockedByDefault and b.name not in ('Disassembler', 'Quasar')
+    _filler_items: Dict[str, int] = {
+        '500 gold':       FILLER_500_GOLD_ID,
+        '1000 gold':      FILLER_1000_GOLD_ID,
+        '500 mana':       FILLER_500_MANA_ID,
+        'Full starpower':  FILLER_FULL_STARPOWER_ID,
     }
+
+    # ── Locations ─────────────────────────────────────────────────────────────
+    # Standard locations: non-default blocks the player must unlock.
+    # Disassembler and Quasar excluded here; added conditionally in create_regions.
+    _standard_locations: List[BlockData] = [
+        b for b in blocks
+        if not b.unlockedByDefault and b.name not in ('Disassembler', 'Quasar')
+    ]
+
+    # ── AP maps (derived from the above) ──────────────────────────────────────
+    item_name_to_id: Dict[str, int] = {b.name: b.id for b in _block_items}
+    item_name_to_id.update(_filler_items)
+
+    location_name_to_id: Dict[str, int] = {loc.name: loc.id for loc in _standard_locations}
 
     # Item groups by color and property for !hint support.
     item_name_groups: Dict[str, List[str]] = {}
-    for _item in blocks:
+    for _item in _block_items:
         if _item.category != 'Machine':
             if _item.color not in item_name_groups:
                 item_name_groups[_item.color] = []
