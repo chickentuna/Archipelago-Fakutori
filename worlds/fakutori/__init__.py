@@ -96,6 +96,10 @@ class Fakutori(World):
         item_name_to_id[unlockable.name] = unlockable.id
         if not unlockable.unlockedByDefault and not unlockable.name == 'Disassembler' and not unlockable.name == 'Quasar':
             location_name_to_id[unlockable.name] = unlockable.id
+    # Extra shop checks (up to ExtraShopChecks.range_end) get stable IDs here so
+    # they're in the data package once; create_regions only creates the enabled count.
+    for i in range(10):
+        location_name_to_id[f"Extra shop {i + 1}"] = 2000 + i
     item_name_to_id["500 gold"] = 1000
     item_name_to_id["1000 gold"] = 1001
     item_name_to_id["500 mana"] = 1002
@@ -160,8 +164,11 @@ class Fakutori(World):
         else:
             self.multiworld.itempool.append(self.create_item("Disassembler"))
 
+        # Count only this world's items: self.multiworld.itempool is shared across
+        # all players, so using its full length under-fills in a multiworld.
+        own_items = sum(1 for item in self.multiworld.itempool if item.player == self.player)
         total_locations = len(self.multiworld.get_unfilled_locations(self.player))
-        self.multiworld.itempool += [self.create_filler() for _ in range(total_locations - len(self.multiworld.itempool))]
+        self.multiworld.itempool += [self.create_filler() for _ in range(total_locations - own_items)]
   
     filler_choices = ("Full starpower", "500 mana", "500 gold", "1000 gold")
     filler_weights = (1, 2, 1, 4)
@@ -180,29 +187,33 @@ class Fakutori(World):
         self.multiworld.regions.append(menu_region)  
 
         main_region = Region("Factory", self.player, self.multiworld)
-    
-        if not self.options.start_with_disassembler.value:
-            self.location_id_to_name[5] = 'Disassembler'
-        
-        if self.options.victory_condition.value != VictoryCondition.option_spawn_quasar:
-            self.location_id_to_name[50] = 'Quasar'
-        
+
         locations = {}
         for location_name in self.location_name_to_id.keys():
+            # Extra shops are created per-player below based on the option value.
+            if location_name.startswith("Extra shop "):
+                continue
             locations[location_name] = self.location_name_to_id[location_name]
 
+        # 'Disassembler' and 'Quasar' are excluded from the class-level
+        # location_name_to_id, so add them to the locations being created here.
+        if not self.options.start_with_disassembler.value:
+            locations['Disassembler'] = 5
+
         if self.options.victory_condition.value == VictoryCondition.option_spawn_quasar:
-            print("all existing locations:", locations)
-            for k in main_region.locations:
-                print(k.name)
+            # Quasar is the goal event location (no address); it gets a locked
+            # Victory item in set_rules.
             main_region.locations.append(FakutoriLocation(self.player, "Quasar", None, main_region))
+        else:
+            # Quasar is a regular check that you complete by crafting it.
+            locations['Quasar'] = 50
+
+        # Only create the number of extra shop checks the player enabled.
+        for i in range(self.options.extra_shop_checks.value):
+            locations[f"Extra shop {i + 1}"] = 2000 + i
 
         main_region.add_locations(locations, FakutoriLocation)
         #TODO: add the optional block challenges
-
-        for i in range(self.options.extra_shop_checks.value):
-            main_region.add_locations({f"Extra shop {i+1}": 2000 + i}, FakutoriLocation)
-            self.location_name_to_id[f"Extra shop {i+1}"] = 2000 + i
         
         self.multiworld.regions.append(main_region)
 
