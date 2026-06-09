@@ -94,7 +94,9 @@ class Fakutori(World):
     location_name_to_id = {}
     for unlockable in blocks:
         item_name_to_id[unlockable.name] = unlockable.id
-        if not unlockable.unlockedByDefault and not unlockable.name == 'Disassembler' and not unlockable.name == 'Quasar':
+        # Disassembler and Quasar are created conditionally in create_regions, but they still need
+        # stable data-package entries so trackers can name locations 5 and 50.
+        if not unlockable.unlockedByDefault:
             location_name_to_id[unlockable.name] = unlockable.id
     # Extra shop checks (up to ExtraShopChecks.range_end) get stable IDs here so
     # they're in the data package once; create_regions only creates the enabled count.
@@ -192,13 +194,12 @@ class Fakutori(World):
 
         locations = {}
         for location_name in self.location_name_to_id.keys():
-            # Extra shops are created per-player below based on the option value.
-            if location_name.startswith("Extra shop "):
+            # Extra shops, Disassembler and Quasar are created conditionally below.
+            if location_name.startswith("Extra shop ") or location_name in ('Disassembler', 'Quasar'):
                 continue
             locations[location_name] = self.location_name_to_id[location_name]
 
-        # 'Disassembler' and 'Quasar' are excluded from the class-level
-        # location_name_to_id, so add them to the locations being created here.
+        # Disassembler is a check only when the player doesn't start with it.
         if not self.options.start_with_disassembler.value:
             locations['Disassembler'] = 5
 
