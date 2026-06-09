@@ -124,8 +124,10 @@ class Fakutori(World):
         for u in self.blocks:
             if u.name == item:
                 if u.category == 'Machine':
-                    if 'Generator' in u.name:
-                        return ItemClassification.progression 
+                    # The Combiner gates every Combine/Rainbow recipe, so it must be progression —
+                    # useful items aren't tracked in logic state and can't gate access.
+                    if 'Generator' in u.name or u.name == 'Combiner':
+                        return ItemClassification.progression
                     return ItemClassification.useful
                 return ItemClassification.progression
         return ItemClassification.filler
@@ -230,6 +232,9 @@ class Fakutori(World):
     
     def get_every_craftable_block_from(self, unlocked_blocks: List[str], assume_generators = False) -> List[str]:
         virtual_collection = set()
+        # Combine/Rainbow recipes need the Combiner machine. It isn't a craftable block (it's an owned
+        # item), so check ownership here rather than in the craftable-block collection.
+        has_combiner = assume_generators or 'Combiner' in unlocked_blocks
 
         unlocked_recipes = []
         for name in unlocked_blocks:
@@ -237,12 +242,12 @@ class Fakutori(World):
         for b in self.blocks:
             if b.category == 'Raw element' and b.name in unlocked_blocks and ('Generator ' + b.name.lower() in unlocked_blocks or assume_generators):
                 virtual_collection.add(b.name)
-        
+
         new_crafted = True
         while new_crafted:
             new_crafted = False
             for recipe in unlocked_recipes:
-                if recipe.product not in virtual_collection and self.can_do_recipe(virtual_collection, recipe):
+                if recipe.product not in virtual_collection and self.can_do_recipe(virtual_collection, recipe, has_combiner):
                     virtual_collection.add(recipe.product)
                     new_crafted = True
                     break
@@ -287,7 +292,7 @@ class Fakutori(World):
         color_counter = self.count_colors(collection)
         return len(color_counter) >= 7
 
-    def can_do_recipe(self, collection: Set[str], recipe: Recipe) -> bool:
+    def can_do_recipe(self, collection: Set[str], recipe: Recipe, has_combiner: bool = True) -> bool:
         if recipe.type == 'Generator':
             return recipe.product in collection
         if recipe.type == 'Starstruck':
@@ -301,8 +306,12 @@ class Fakutori(World):
             has_the_fuel = "Coal" in collection or "Oil" in collection
             return has_the_fuel and has_the_fire
         elif recipe.product == 'Rainbow':
-            return self.can_rainbow(collection)
-        elif recipe.type in ('Combine', 'Combust', 'Quickening', 'BlackHole', 'Time', 'DissolveMetals', 'Fall'):
+            # Combining 7 differently-coloured blocks happens in the Combiner.
+            return has_combiner and self.can_rainbow(collection)
+        elif recipe.type == 'Combine':
+            return has_combiner and all(self.has_ingredient(collection, ingredient) for ingredient in recipe.ingredients)
+        elif recipe.type in ('Combust', 'Quickening', 'BlackHole', 'Time', 'DissolveMetals', 'Fall'):
+            # Grid reactions (burning, gravity, etc.) — no Combiner needed.
             return all(self.has_ingredient(collection, ingredient) for ingredient in recipe.ingredients)
         return True
 
